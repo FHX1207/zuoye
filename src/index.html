@@ -10,12 +10,12 @@
 <body>
     <div class="wrapper">
         <header class="header">
-            <div>未使用</div>
+            <div class="active">未使用</div>
             <div>已使用</div>
             <div>已过期</div>
         </header>
         <section class="main">
-            <div><img src="img/1.jpg" alt=""></div>
+            <div><img src="img/1.jpg" alt="" style="display: block"></div>
             <div><img src="img/2.jpg" alt=""></div>
             <div><img src="img/3.jpg" alt=""></div>
         </section>
@@ -23,4 +23,35 @@
     </div>
     <script src="./js/flexible.js"></script>
 </body>
+<script>
+let devs=[...document.querySelectorAll(".header div")];
+let imgs=[...document.querySelectorAll(".main img")]
+for(var i=0;i<devs.length;i++){
+    devs[i].index=i;
+    devs[i].onclick=function(){
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].style.display="none";
+            devs[i].className=""
+        }
+        this.className = "active";
+        imgs[this.index].style.display = "block";
+    }
+}
+
+
+// for (var i = 0; i < devs.length; i++) {
+//  7             devs[i].index = i;
+//  8             devs[i].onclick = function() {
+//  9                 for (var i = 0; i < imgs.length; i++) {
+// // 10                 　　imgs[i].className = "";
+// // 11                 　　aDiv[i].style.display = "none";
+// // 12                 　　aDiv[this.index].className = "";
+// // 13                 　　aDiv[this.index].className = "content";
+// 14                 }
+// // 15                 this.className = "active";
+// // 16                 aDiv[this.index].style.display = "block";
+// 17             };
+// 18         }
+
+</script>
 </html>
